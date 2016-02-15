@@ -13,7 +13,7 @@ feature "Create Feedback." do
     fill_form :feedback, feedback_attributes
     click_button "Submit"
 
-    open_email(ENV.fetch("FEADBACK_EMAIL"))
+    open_email(ENV.fetch("FEEDBACK_EMAIL"))
 
     expect(current_email).to have_subject("Feedback")
     expect(current_email).to be_delivered_from(feedback_attributes[:email])
