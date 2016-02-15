@@ -43,7 +43,7 @@ gem "seedbank"
 gem "stackprof"
 
 # feature related gems
-gem 'hipchat'
+gem "hipchat"
 
 group :staging, :production do
   gem "newrelic_rpm"

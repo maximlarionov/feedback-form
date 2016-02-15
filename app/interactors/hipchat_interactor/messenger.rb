@@ -1,6 +1,6 @@
 module HipchatInteractor
   class Messenger
-    ROOM = 'FS: Max L pdp room'
+    ROOM = "FS: Max L pdp room"
 
     include Interactor
 
