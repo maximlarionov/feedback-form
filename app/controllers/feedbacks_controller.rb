@@ -1,11 +1,12 @@
 class FeedbacksController < ApplicationController
   expose(:feedback) { Feedback.new(feedback_attributes) }
+  expose(:decorated_feedback) { FeedbackDecorator.new(feedback) }
 
   def new
   end
 
   def create
-    perform_delivery if feedback.save
+    perform_delivery if feedback.valid?
     respond_with(feedback, location: root_path)
   end
 
@@ -17,6 +18,9 @@ class FeedbacksController < ApplicationController
   end
 
   def feedback_attributes
-    params.fetch(:feedback, {}).permit(:email, :name, :message, :phone)
+    params
+      .fetch(:feedback, {})
+      .permit(:email, :name, :message, :phone, :user)
+      .merge(user: current_user)
   end
 end

@@ -9,15 +9,15 @@
 
 .row
   .medium-6.columns
-    = simple_form_for(feedback, url: feedback_path) do |f|
+    = simple_form_for(decorated_feedback, url: feedback_path) do |f|
 
       legend
         ' Have a question?
         | You may find the answer in the #{link_to("FAQ", "#")}.
 
       .form-inputs
-        = f.input :name
-        = f.input :email
+        = f.input :name, input_html: { value: decorated_feedback.author }
+        = f.input :email, input_html: { value: decorated_feedback.email }
         = f.input :phone
         = f.input :message, as: :text
 
