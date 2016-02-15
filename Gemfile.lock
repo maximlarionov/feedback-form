@@ -305,6 +305,9 @@ GEM
     rspec-expectations (3.0.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.0.0)
+    rspec-its (1.2.0)
+      rspec-core (>= 3.0.0)
+      rspec-expectations (>= 3.0.0)
     rspec-mocks (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-rails (3.0.1)
@@ -458,6 +461,7 @@ DEPENDENCIES
   rails_stdout_logging
   responders
   rollbar
+  rspec-its
   rspec-rails (~> 3.0)
   rubocop
   rubocop-rspec

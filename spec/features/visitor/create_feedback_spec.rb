@@ -3,6 +3,10 @@ require "rails_helper"
 feature "Create Feedback." do
   let(:feedback_attributes) { attributes_for(:feedback) }
 
+  before do
+    allow(HipchatInteractor::Organizer).to receive(:call).and_return(true)
+  end
+
   scenario "Visitor creates feedback" do
     visit new_feedback_path
 

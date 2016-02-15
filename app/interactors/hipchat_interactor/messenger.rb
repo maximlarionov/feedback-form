@@ -6,7 +6,7 @@ module HipchatInteractor
 
     def call
       if context.client && context.name
-        context.client[ROOM].send(name, message)
+        context.client[ROOM].send("", message)
       else
         context.fail!(message: "Couldn't send a message")
       end
@@ -14,12 +14,8 @@ module HipchatInteractor
 
     private
 
-    def name
-      context.name.to_s
-    end
-
     def message
-      "Feedback from #{name}: <br><br>
+      "Feedback from #{context.name}: <br><br>
       #{context.message}      <br><br>
       ____________________________<br>
       email: #{context.email}     <br>

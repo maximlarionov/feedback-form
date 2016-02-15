@@ -4,5 +4,6 @@ FactoryGirl.define do
     name  { Faker::Name.name }
     message { Faker::Lorem.paragraph }
     phone { Faker::PhoneNumber.phone_number }
+    user
   end
 end
