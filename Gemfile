@@ -42,6 +42,9 @@ gem "rollbar"
 gem "seedbank"
 gem "stackprof"
 
+# feature related gems
+gem 'hipchat'
+
 group :staging, :production do
   gem "newrelic_rpm"
   gem "rails_stdout_logging"
