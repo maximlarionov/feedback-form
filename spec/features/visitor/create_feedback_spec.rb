@@ -4,7 +4,9 @@ feature "Create Feedback." do
   let(:feedback_attributes) { attributes_for(:feedback) }
 
   before do
-    allow(HipchatInteractor::Organizer).to receive(:call).and_return(true)
+    allow_any_instance_of(DeliveryNotifications)
+      .to receive(:send_hipchat)
+      .and_return(true)
   end
 
   scenario "Visitor creates feedback" do

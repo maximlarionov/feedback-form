@@ -35,6 +35,4 @@ class DeliveryNotifications
     email: #{context.email}     <br>
     phone: #{context.phone}"
   end
-
-
 end

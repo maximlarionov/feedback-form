@@ -4,7 +4,7 @@ describe DeliveryNotifications do
   let(:feedback_attributes) { FactoryGirl.attributes_for(:feedback).merge(user: create(:user)) }
   let(:mailer_double) { double }
   let(:client_double) { double("HipChat::Client") }
-  let(:room_double) { double() }
+  let(:room_double) { double }
 
   subject(:call) { described_class.call(feedback_attributes) }
 

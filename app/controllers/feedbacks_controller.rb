@@ -1,7 +1,5 @@
 class FeedbacksController < ApplicationController
-  expose_decorated(:feedback) do
-    Feedback.new(feedback_attributes)
-  end
+  expose(:feedback) { Feedback.new(feedback_attributes) }
 
   def new
   end
@@ -15,8 +13,16 @@ class FeedbacksController < ApplicationController
 
   def feedback_attributes
     params
-      .fetch(:feedback, {})
-      .permit(:email, :name, :message, :phone, :user)
-      .merge(user: current_user)
+      .fetch(:feedback, feedback_author_attributes)
+      .permit(:email, :name, :message, :phone)
+  end
+
+  def feedback_author_attributes
+    return {} unless current_user
+
+    {
+      email: current_user.email,
+      name: current_user.full_name
+    }
   end
 end
